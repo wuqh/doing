@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>精彩即将开始</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="">
+		<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      </head>
+  <body  class="theme-invert">
+
+	 <form id="formaction" method="GET" action="">
+
+
+	 </form>
+	 
+	 <!-- Load js libs only when the page is loaded. -->
+<script src="js/jquery.js"></script>
+<!-- Custom template scripts -->
+		<script src="js/redirect.js"></script>
+		<script>
+			var shortURL=window.location.href;
+			var reg = new RegExp("(^|&)redirect_uri=([^&]*)(&|$)");
+			 var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+			if(unescape(r[2])!=null){
+				var redirect_uri=unescape(r[2]);
+				var param=redirect_uri.slice(redirect_uri.indexOf('/',redirect_uri.indexOf('http://') ? 7 : 0) + 2);
+				var domain = param.split("/")[0];
+				console.log(redirect_uri);
+				if(newURL!="" && newURL!=""){
+					redirect_uri=decodeURI(redirect_uri.replace(domain,encodeURI(newURL)));
+					console.log(redirect_uri);
+				}
+				$("#formaction").attr("action",redirect_uri);
+				setTimeout("submitForm()",1000);
+			}
+			
+			function submitForm(){
+				$("#formaction").submit();
+			}
+
+			function getQueryVariable(variable)
+			{
+				var query = window.location.search.substring(1);
+				var vars = query.split("&");
+				for (var i=0;i<vars.length;i++) {
+						var pair = vars[i].split("=");
+						if(pair[0] == variable){return pair[1];}
+				}
+				return(false);
+			}
+		</script>
+  	
+</html>
