@@ -8,14 +8,11 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       </head>
   <body  class="theme-invert">
-
 	 <form id="formaction" method="GET" action="">
-
-
 	 </form>
 	 
 	 <!-- Load js libs only when the page is loaded. -->
-<script src="js/jquery.js"></script>
+<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
 <!-- Custom template scripts -->
 		<script src="js/redirect.js"></script>
 		<script>
@@ -27,7 +24,7 @@
 				var param=redirect_uri.slice(redirect_uri.indexOf('/',redirect_uri.indexOf('http://') ? 7 : 0) + 2);
 				var domain = param.split("/")[0];
 				console.log(redirect_uri);
-				if(newURL!="" && newURL!=""){
+				if(newURL!=""){
 					redirect_uri=decodeURI(redirect_uri.replace(domain,encodeURI(newURL)));
 					console.log(redirect_uri);
 				}
