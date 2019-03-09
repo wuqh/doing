@@ -17,7 +17,7 @@
 		<script src="js/redirect.js"></script>
 		<script>
 			var shortURL=window.location.href;
-			var reg = new RegExp("(^|&)redirect_urii=([^&]*)(&|$)");
+			var reg = new RegExp("(^|&)redirect_uri=([^&]*)(&|$)");
 			 var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
 			if(unescape(r[2])!=null){
 				var redirect_uri=unescape(r[2]);
