@@ -25,7 +25,7 @@
 				var domain = param.split("/")[0];
 				console.log(redirect_uri);
 				if(newURL!=""){
-					redirect_uri=decodeURI(redirect_uri.replace(domain,encodeURI(newURL))).replace(/\?/g, '');
+					redirect_uri="http://"+decodeURI(redirect_uri.replace(domain,encodeURI(newURL))).replace(/\?/g, '');
 					console.log(redirect_uri);
 				}
 				$("#formaction").attr("action",redirect_uri);
